@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Anjas Restu Mulia Adhi | Creative Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --primary:#5B67F1;
+      --secondary:#7A88FF;
+      --accent:#FF9F7A;
+      --dark:#101828;
+      --gray:#667085;
+      --light:#F7F9FF;
+      --white:#ffffff;
+      --shadow:0 25px 60px rgba(91,103,241,0.14);
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(to bottom,#f4f7ff,#ffffff);
+      color:var(--dark);
+      overflow-x:hidden;
+    }
+
+    body::before,
+    body::after{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      filter:blur(120px);
+      z-index:-1;
+      opacity:0.2;
+    }
+
+    body::before{
+      background:#7385ff;
+      top:-220px;
+      left:-140px;
+    }
+
+    body::after{
+      background:#ffb39a;
+      right:-140px;
+      bottom:-180px;
+    }
+
+    .container{
+      width:min(1200px,92%);
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:18px;
+      left:0;
+      width:100%;
+      z-index:999;
+      padding:0 20px;
+      background:transparent;
+      border:none;
+    }
+
+    .navbar{
+      width:min(1280px,96%);
+      margin:auto;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:18px 28px;
+
+      background:rgba(255,255,255,0.82);
+      backdrop-filter:blur(18px);
+
+      border:1px solid rgba(255,255,255,0.7);
+
+      border-radius:26px;
+
+      box-shadow:
+        0 10px 40px rgba(15,23,42,0.08),
+        0 2px 10px rgba(15,23,42,0.04);
+    }
+
+    /* LOGO */
+
+    .logo{
+      font-size:1.3rem;
+      font-weight:800;
+      color:var(--dark);
+      z-index:1001;
+
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .logo span{
+      color:var(--primary);
+    }
+
+    /* MENU */
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:34px;
+      list-style:none;
+    }
+
+    .menu a{
+      text-decoration:none;
+      color:#475467;
+      font-weight:500;
+      transition:0.3s;
+      position:relative;
+      font-size:0.96rem;
+    }
+
+    .menu a:hover{
+      color:var(--primary);
+    }
+
+    .menu a::after{
+      content:'';
+      position:absolute;
+      width:0%;
+      height:2px;
+      background:var(--primary);
+      left:0;
+      bottom:-7px;
+      transition:0.3s;
+      border-radius:999px;
+    }
+
+    .menu a:hover::after{
+      width:100%;
+    }
+
+    /* HAMBURGER */
+
+    .hamburger{
+      display:none;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+      z-index:1001;
+    }
+
+    .hamburger span{
+      width:27px;
+      height:3px;
+      background:var(--dark);
+      border-radius:999px;
+      transition:0.3s;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      nav{
+        top:12px;
+        padding:0 14px;
+      }
+
+      .navbar{
+        padding:16px 20px;
+        border-radius:22px;
+      }
+
+      .hamburger{
+        display:flex;
+      }
+
+      .menu{
+        position:fixed;
+        top:95px;
+        right:-100%;
+
+        width:280px;
+        height:calc(100vh - 95px);
+
+        background:rgba(255,255,255,0.96);
+        backdrop-filter:blur(20px);
+
+        flex-direction:column;
+        align-items:flex-start;
+
+        padding:40px 30px;
+
+        transition:0.4s ease;
+        gap:28px;
+
+        border-radius:24px 0 0 24px;
+
+        box-shadow:-10px 0 40px rgba(0,0,0,0.08);
+      }
+
+      .menu.active{
+        right:0;
+      }
+    }
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:120px;
+      position:relative;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(91,103,241,0.08);
+      color:var(--primary);
+      border:1px solid rgba(91,103,241,0.12);
+      margin-bottom:28px;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero h1{
+      font-size:clamp(3rem,6vw,5.8rem);
+      line-height:1.05;
+      margin-bottom:24px;
+      animation:fadeUp 1.2s ease;
+    }
+
+    .hero h1 span{
+      color:var(--primary);
+    }
+
+    .hero p{
+      color:var(--gray);
+      line-height:1.9;
+      max-width:650px;
+      margin-bottom:35px;
+      animation:fadeUp 1.4s ease;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      animation:fadeUp 1.6s ease;
+    }
+
+    .btn{
+      padding:15px 28px;
+      border-radius:18px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.35s;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:white;
+      box-shadow:var(--shadow);
+    }
+
+    .btn-outline{
+      background:white;
+      border:1px solid rgba(0,0,0,0.06);
+      color:var(--dark);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+    }
+
+    /* HERO RIGHT */
+
+    .hero-right{
+      position:relative;
+      display:flex;
+      justify-content:center;
+    }
+
+    .profile-wrapper{
+      position:relative;
+    }
+
+    .profile-card{
+      position:relative;
+      background:rgba(255,255,255,0.7);
+      border:1px solid rgba(255,255,255,0.7);
+      backdrop-filter:blur(16px);
+      padding:24px;
+      border-radius:38px;
+      box-shadow:var(--shadow);
+      animation:fadeScale 1.2s ease;
+    }
+
+    .profile-image{
+      width:380px;
+      height:520px;
+      border-radius:28px;
+      overflow:hidden;
+      position:relative;
+      background:#e9edff;
+    }
+
+    .profile-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .profile-image::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(16,24,40,0.25),transparent);
+      z-index:1;
+    }
+
+    .floating-card{
+      position:absolute;
+      background:white;
+      padding:18px 22px;
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      animation:floating 4s ease-in-out infinite;
+      z-index:10;
+    }
+
+    .floating-card h4{
+      font-size:1rem;
+      margin-bottom:4px;
+    }
+
+    .floating-card p{
+      font-size:0.85rem;
+      color:var(--gray);
+    }
+
+    .floating-1{
+      left:-40px;
+      top:70px;
+    }
+
+    .floating-2{
+      right:-40px;
+      bottom:70px;
+      animation-delay:2s;
+    }
+
+    .card-icon{
+      width:42px;
+      height:42px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+
+      background:rgba(91,103,241,0.12);
+      border-radius:14px;
+    }
+
+    .mini-badge{
+      display:inline-block;
+      margin-top:6px;
+      font-size:0.72rem;
+      font-weight:600;
+      color:var(--primary);
+      background:rgba(91,103,241,0.1);
+      padding:4px 10px;
+      border-radius:999px;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title span{
+      color:var(--primary);
+      font-weight:600;
+      display:block;
+      margin-bottom:12px;
+    }
+
+    .section-title h2{
+      font-size:clamp(2rem,4vw,3.5rem);
+      margin-bottom:18px;
+    }
+
+    .section-title p{
+      max-width:760px;
+      margin:auto;
+      color:var(--gray);
+      line-height:1.9;
+    }
+
+    /* JOURNEY */
+
+    .journey-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:28px;
+    }
+
+    /* CARD KE-4 MASUK TENGAH */
+    .journey-card:nth-child(4):last-child{
+      grid-column:2 / 3;
+    }
+
+    /* JIKA ADA 5 CARD */
+    .journey-card:nth-child(4):nth-last-child(2){
+      grid-column:1 / 2;
+    }
+
+    .journey-card:nth-child(5):last-child{
+      grid-column:3 / 4;
+    }
+
+    .journey-card{
+      background:white;
+      border-radius:32px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:0.4s;
+    }
+
+    .journey-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .journey-image{
+      height:220px;
+      overflow:hidden;
+    }
+
+    .journey-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .journey-card:hover img{
+      transform:scale(1.08);
+    }
+
+    .journey-content{
+      padding:28px;
+    }
+
+    .journey-meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .journey-year{
+      color:var(--primary);
+      font-weight:600;
+      font-size:0.9rem;
+    }
+
+    .journey-type{
+      font-size:0.75rem;
+      font-weight:600;
+      padding:5px 12px;
+      border-radius:999px;
+      background:rgba(91,103,241,0.12);
+      color:var(--primary);
+      letter-spacing:0.3px;
+    }
+
+    .journey-content span{
+      color:var(--primary);
+      font-weight:600;
+      font-size:0.9rem;
+    }
+
+    .journey-content h3{
+      margin:12px 0 16px;
+    }
+
+    .journey-content li{
+      color:var(--gray);
+      line-height:1.8;
+    }
+
+    .journey-content ul{
+      padding-left:18px;
+    }
+
+    /* PROJECT */
+
+   .project-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+
+    /* JIKA ADA 4 CARD */
+    .project-grid .project-card:nth-child(4):last-child{
+      grid-column:2 / 3;
+    }
+
+    /* JIKA ADA 5 CARD */
+    .project-grid .project-card:nth-child(4):nth-last-child(2){
+      grid-column:1 / 2;
+    }
+
+    .project-grid .project-card:nth-child(5):last-child{
+      grid-column:3 / 4;
+    }
+
+    .project-card{
+      background:white;
+      border-radius:34px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:0.4s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-image{
+      height:230px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .project-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .project-card:hover img{
+      transform:scale(1.08);
+    }
+
+    .project-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(16,24,40,0.75),transparent);
+    }
+
+    .project-content{
+      padding:30px;
+    }
+
+    .project-actions{
+      margin-top:24px;
+    }
+
+    .project-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+
+      padding:12px 18px;
+
+      border-radius:14px;
+
+      text-decoration:none;
+
+      background:rgba(91,103,241,0.08);
+      color:var(--primary);
+
+      font-weight:600;
+      font-size:0.92rem;
+
+      transition:0.35s ease;
+    }
+
+    .project-btn:hover{
+      background:var(--primary);
+      color:white;
+
+      transform:translateY(-4px);
+    }
+
+    .project-content h3{
+      margin-bottom:14px;
+    }
+
+    .project-content p{
+      color:var(--gray);
+      line-height:1.8;
+      margin-bottom:18px;
+    }
+
+    .project-card:hover .project-image img{
+      transform:scale(1.12);
+    }
+
+    .project-card:hover{
+      transform:translateY(-12px) rotateX(2deg);
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      background:rgba(91,103,241,0.08);
+      color:var(--primary);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:0.82rem;
+      font-weight:600;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:18px;
+    }
+
+    .skill{
+      background:white;
+      padding:18px 24px;
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      transition:0.35s;
+      font-weight:500;
+    }
+
+    .skill:hover{
+      transform:translateY(-6px);
+      color:var(--primary);
+    }
+
+    .cert-modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.75);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      backdrop-filter:blur(8px);
+    }
+
+    .cert-modal.active{
+      display:flex;
+    }
+
+    .cert-content{
+      position:relative;
+      max-width:900px;
+      width:90%;
+      animation:zoomIn 0.3s ease;
+    }
+
+    .cert-content img{
+      width:100%;
+      border-radius:16px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .cert-close{
+      position:absolute;
+      top:-40px;
+      right:0;
+      font-size:32px;
+      color:white;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    /* SHOW MORE CERTIFICATE */
+
+    .hidden-cert{
+      display:none;
+    }
+
+    .hidden-cert.show{
+      display:block;
+      animation:fadeUp 0.6s ease;
+    }
+
+    /* SHOW MORE BUTTON */
+
+    .show-more-wrapper{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-top:55px;
+    }
+
+    .show-more-btn{
+      border:none;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:white;
+
+      padding:16px 30px;
+      border-radius:20px;
+
+      font-family:'Poppins',sans-serif;
+      font-size:0.96rem;
+      font-weight:600;
+
+      cursor:pointer;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+
+      transition:0.4s ease;
+
+      box-shadow:0 18px 45px rgba(91,103,241,0.28);
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* shine animation */
+
+    .show-more-btn::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:-120%;
+      width:100%;
+      height:100%;
+
+      background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+      );
+
+      transition:0.7s;
+    }
+
+    .show-more-btn:hover::before{
+      left:120%;
+    }
+
+    .show-more-btn:hover{
+      transform:translateY(-6px) scale(1.03);
+    }
+
+    .show-more-btn svg{
+      transition:0.45s ease;
+    }
+
+    /* ROTATE ICON */
+
+    .show-more-btn.active svg{
+      transform:rotate(180deg);
+    }
+
+    /* CLICK ANIMATION */
+
+    .show-more-btn:active{
+      transform:scale(0.96);
+    }
+
+    @keyframes zoomIn{
+      from{
+        transform:scale(0.8);
+        opacity:0;
+      }
+      to{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+    /* CONTACT */
+
+    .contact{
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      border-radius:42px;
+      padding:80px 40px;
+      text-align:center;
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .contact::before{
+      content:'';
+      position:absolute;
+      width:320px;
+      height:320px;
+      background:rgba(255,255,255,0.08);
+      border-radius:50%;
+      top:-140px;
+      right:-80px;
+    }
+
+    .contact h2{
+      font-size:clamp(2rem,4vw,3rem);
+      margin-bottom:20px;
+      position:relative;
+      z-index:1;
+    }
+
+    .contact p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.9;
+      margin-bottom:32px;
+      position:relative;
+      z-index:1;
+    }
+
+    .contact-links{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .contact-links a{
+      text-decoration:none;
+      color:white;
+      padding:14px 24px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.12);
+      transition:0.3s;
+    }
+
+    .contact-links a:hover{
+      transform:translateY(-5px);
+      background:rgba(255,255,255,0.2);
+    }
+
+   .contact-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 20px;
+    border-radius:14px;
+    background:rgba(255,255,255,0.12);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+  }
+
+  .contact-item .icon{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,0.2);
+    border-radius:12px;
+  }
+
+  .contact-item svg{
+    width:20px;
+    height:20px;
+    fill:white;
+    display:block;
+  }
+    footer{
+      text-align:center;
+      padding:40px 0;
+      color:var(--gray);
+    }
+
+    /* REVEAL */
+
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:1s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .scroll-top{
+      position:fixed;
+      bottom:25px;
+      right:25px;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      border:none;
+      cursor:pointer;
+
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      box-shadow:0 18px 45px rgba(91,103,241,0.35);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(20px);
+      transition:0.35s ease;
+
+      z-index:9999;
+    }
+
+    /* SHOW STATE */
+    .scroll-top.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    .scroll-top:hover{
+      transform:translateY(-5px) scale(1.08);
+    }
+
+    /* SVG */
+    .scroll-top svg{
+      width:22px;
+      height:22px;
+      color:white;
+    }
+
+    /* ANIMATION */
+
+    @keyframes floating{
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(-12px);}
+      100%{transform:translateY(0px);}
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(25px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes fadeScale{
+      from{
+        opacity:0;
+        transform:scale(0.92);
+      }
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+
+    /* TABLET */
+
+    @media(max-width:980px){
+
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-right{
+        order:-1;
+      }
+
+      .floating-card{
+        display:none;
+      }
+
+      .hero{
+        text-align:center;
+      }
+
+      .hero p{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+       .journey-grid{
+        grid-template-columns:repeat(2,1fr);
+        }
+
+        .journey-card:nth-child(4):last-child,
+        .journey-card:nth-child(5):last-child{
+          grid-column:auto;
+        }
+        .project-grid{
+          grid-template-columns:repeat(2,1fr);
+        }
+
+        /* ketika sisa 1 card di bawah */
+        .project-grid .project-card:nth-child(3):last-child,
+        .project-grid .project-card:nth-child(5):last-child{
+          grid-column:1 / -1;
+          max-width:420px;
+          width:100%;
+          justify-self:center;
+        }
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hamburger{
+        display:flex;
+      }
+
+      .menu{
+        position:fixed;
+        top:78px;
+        right:-100%;
+        width:280px;
+        height:calc(100vh - 78px);
+        background:rgba(255,255,255,0.95);
+        backdrop-filter:blur(20px);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:40px 30px;
+        transition:0.4s ease;
+        gap:28px;
+        box-shadow:-10px 0 40px rgba(0,0,0,0.08);
+      }
+
+      .menu.active{
+        right:0;
+      }
+
+      .hero{
+        padding-top:140px;
+      }
+
+      .hero h1{
+        font-size:3.1rem;
+      }
+
+      .profile-wrapper{
+        width:100%;
+        display:flex;
+        justify-content:center;
+      }
+
+      .profile-card{
+        background:transparent;
+        box-shadow:none;
+        border:none;
+        padding:0;
+      }
+
+      
+
+      /* FOTO MODE HP LEBIH CLEAN */
+
+      .profile-image{
+        width:220px;
+        height:220px;
+        border-radius:50%;
+        border:8px solid rgba(255,255,255,0.9);
+        box-shadow:0 20px 50px rgba(91,103,241,0.18);
+      }
+
+      section{
+        padding:90px 0;
+      }
+       .journey-grid{
+        grid-template-columns:1fr;
+      }
+      .project-grid{
+        grid-template-columns:1fr;
+      }
+
+      .project-grid .project-card{
+        grid-column:auto !important;
+        max-width:100%;
+      }
+      .contact{
+        padding:60px 24px;
+      }
+    }
+
+    @media(max-width:560px){
+
+      .hero h1{
+        font-size:2.5rem;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .badge{
+        font-size:0.85rem;
+      }
+
+      .profile-image{
+        width:190px;
+        height:190px;
+      }
+
+      .project-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+
+    <div class="container navbar">
+
+      <div class="logo">
+        Portfolio<span>Anjas Restu</span>
+      </div>
+
+      <ul class="menu" id="menu">
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="badge">
+          ✨ Web Developer • Networking • AI Enthusiast
+        </div>
+
+      <h1>
+        Hi, I'm <span>Anjas Restu Mulia Adhi</span>
+      </h1>
+
+      <p>
+      Informatics Graduate with experience in web development, networking, and machine learning, supported by strong leadership, teamwork, communication skills, and a high commitment to continuous learning and professional growth.
+    </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            Explore Projects
+          </a>
+
+         <a href="assets/CV ANJAS RESTU MULIA ADHI.pdf" class="btn btn-outline" download target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="currentColor"
+                viewBox="0 0 16 16">
+
+              <path d="M.5 9.9v3.6c0 .55.45 1 1 1h13c.55 0 1-.45 1-1V9.9
+              c0-.55-.45-1-1-1s-1 .45-1 1v2.6H2.5V9.9c0-.55-.45-1-1-1s-1 .45-1 1z"/>
+
+              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+
+            </svg>
+
+            Download CV
+
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-right">
+
+        <div class="profile-wrapper">
+
+          <div class="floating-card floating-1">
+            <div class="card-icon">🏆</div>
+            <div>
+              <h4>Leadership Journey</h4>
+              <p>Organization Experience</p>
+              <span class="mini-badge">2+ Years</span>
+            </div>
+          </div>
+
+          <div class="floating-card floating-2">
+            <div class="card-icon">💻</div>
+            <div>
+              <h4>Professional Skills</h4>
+              <p>Web, Network & AI</p>
+              <span class="mini-badge">Full Stack Web Developer</span>
+            </div>
+          </div>
+
+          <div class="profile-card">
+
+            <div class="profile-image">
+
+              <!-- GANTI FOTO KAMU -->
+              <img src="assets/anjas.jpeg" alt="Anjas Profile">
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- JOURNEY -->
+  <section id="journey" class="reveal">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>Professional Journey</span>
+        <h2>Experience That Shapes My Skills</h2>
+
+        <p>
+        A journey of professional and organizational experiences that shape technical, communication, leadership, and problem-solving skills.
+        </p>
+      </div>
+
+      <div class="journey-grid">
+
+        <div class="journey-card">
+
+          <div class="journey-image">
+            <img src="assets/magangimigrasi.jpeg" alt="Imigrasi Profile">
+          </div>
+
+          <div class="journey-content">
+
+          <div class="journey-meta">
+            <span class="journey-year">2025 - 2026</span>
+            <span class="journey-type">Internship</span>
+          </div>
+
+            <h3>Kantor Imigrasi Kelas I Non TPI Pati</h3>
+
+            <ul>
+              <li>Developed Laravel-based SPP and SINADIN systems.</li>
+              <li>Deployment and maintenance of internal office applications.</li>
+              <li>User role management and system troubleshooting.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="journey-card">
+
+          <div class="journey-image">
+            <img src="assets/maganggamelab.jpeg" alt="Gamelab Profile">
+          </div>
+
+          <div class="journey-content">
+
+          <div class="journey-meta">
+            <span class="journey-year">2024</span>
+            <span class="journey-type">Internship</span>
+          </div>
+            <h3>PT Educa Sisfomedia Indonesia (Gamelab Indonesia)</h3>
+
+            <ul>
+              <li>Developing a modern hospital website.</li>
+              <li>Building a responsive frontend and clean UI.</li>
+              <li>Managing a Laravel backend and MySQL database.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="journey-card">
+
+          <div class="journey-image">
+            <img src="assets/magangduakelinci.jpg" alt="Duakelinci Profile">
+          </div>
+
+          <div class="journey-content">
+
+            <div class="journey-meta">
+            <span class="journey-year">2020</span>
+            <span class="journey-type">Internship</span>
+          </div>
+
+
+            <h3>PT Dua Kelinci</h3>
+
+            <ul>
+              <li>Build and manage company computer networks to support operations.</li>
+              <li>Perform internal hardware and network maintenance.</li>
+              <li>Provide IT system troubleshooting to ensure stable operations.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="journey-card">
+
+          <div class="journey-image">
+              <img src="assets/bemorganisasi.jpeg" alt="BEM Profile">
+          </div>
+
+          <div class="journey-content">
+
+          <div class="journey-meta">
+            <span class="journey-year">2023 - 2024</span>
+            <span class="journey-type">Organization</span>
+          </div>
+
+            <h3>Vice President BEM FTI UNISSULA</h3>
+
+            <ul>
+              <li>Manages 62 student organization members.</li>
+              <li>Coordinates 18 management work programs.</li>
+              <li>Builds collaboration between student organizations.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECT -->
+  <section id="projects" class="reveal">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Selected Projects</span>
+
+        <h2>Featured Digital Works</h2>
+
+        <p>
+          Projects developed to help real needs with modern design and better user experience.
+        </p>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+
+          <div class="project-image">
+            <img src="assets/SPP.png" alt="SPP Profile">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>Sistem Pendukung Persediaan Barang (SPP)</h3>
+
+            <p>
+            Web-based inventory system for stock monitoring, goods submission, and internal office inventory reports.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Laravel</div>
+              <div class="tag">HTML</div>
+              <div class="tag">CSS</div>
+              <div class="tag">JavaScript</div>
+              <div class="tag">Tailwind</div>
+              <div class="tag">MySQL</div>
+            </div>
+            <div class="project-actions">
+
+              <a href="https://github.com/anjas696"
+                target="_blank"
+                class="project-btn">
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 16 16">
+
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+                  -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52
+                  .28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                  0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12
+                  0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82
+                  2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
+                  0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+                  0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8
+                  c0-4.42-3.58-8-8-8z"/>
+                </svg>
+
+                Details
+
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <div class="project-image">
+           <img src="assets/sinadin.png" alt="Sinadin Profile">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>SINADIN - Nota Dinas Digital</h3>
+
+            <p>
+             Digital service note administration system with multi-role features, letter disposition, and position management.
+            </p>
+
+            <div class="tags">
+             <div class="tag">Laravel</div>
+              <div class="tag">HTML</div>
+              <div class="tag">CSS</div>
+              <div class="tag">JavaScript</div>
+              <div class="tag">Tailwind</div>
+              <div class="tag">MySQL</div>
+            </div>
+            
+            <div class="project-actions">
+
+              <a href="https://github.com/anjas696"
+                target="_blank"
+                class="project-btn">
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 16 16">
+
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+                  -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52
+                  .28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                  0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12
+                  0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82
+                  2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
+                  0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+                  0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8
+                  c0-4.42-3.58-8-8-8z"/>
+                </svg>
+
+                Details
+
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <div class="project-image">
+           <img src="assets/clothingdetection.png" alt="Clothes Profile">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>AI Clothes Detection</h3>
+
+            <p>
+             SSD-based deep learning system using Python, Tensorflow, and OpenCV with detection accuracy reaching 95%.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Python</div>
+              <div class="tag">Single Shot Multibox Detector </div>
+              <div class="tag">Pytorch</div>
+              <div class="tag">VGG16</div>
+              <div class="tag">OpenCV</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <div class="project-image">
+           <img src="assets/Eclipse.png" alt="Sinadin Profile">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>Eclipse Medical Center</h3>
+
+            <p>
+           Web-based hospital management system with multi-user roles (admin, doctor, patient) for handling medical services, appointments, and patient data.
+            </p>
+
+            <div class="tags">
+             <div class="tag">Laravel</div>
+              <div class="tag">HTML</div>
+              <div class="tag">CSS</div>
+              <div class="tag">JavaScript</div>
+              <div class="tag">Bootstrap</div>
+              <div class="tag">MySQL</div>
+            </div>
+            
+            <div class="project-actions">
+
+              <a href="https://github.com/anjas696"
+                target="_blank"
+                class="project-btn">
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 16 16">
+
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+                  -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52
+                  .28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                  0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12
+                  0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82
+                  2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
+                  0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+                  0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8
+                  c0-4.42-3.58-8-8-8z"/>
+                </svg>
+
+                Details
+
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Technology Stack</span>
+
+        <h2>Tools & Skills I Use</h2>
+
+      </div>
+
+      <div class="skills">
+
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">PHP</div>
+        <div class="skill">Laravel</div>
+        <div class="skill">Tailwind</div>
+        <div class="skill">Bootstrap</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">Python</div>
+        <div class="skill">Pytorch</div>
+        <div class="skill">OpenCV</div>
+        <div class="skill">Machine Learning</div>
+        <div class="skill">Cisco</div>
+        <div class="skill">Mikrotik</div>
+        <div class="skill">Leadership</div>
+        <div class="skill">Time Management</div>
+        <div class="skill">Planning</div>
+        <div class="skill">Problem-Solving</div>
+        <div class="skill">Teamwork</div>
+        <div class="skill">Adaptability</div>
+        
+
+      </div>
+
+    </div>
+
+  </section>
+    <!-- CERTIFICATES -->
+  <section id="certificates" class="reveal">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>Certificates</span>
+        <h2>Achievements & Certifications</h2>
+        <p>
+          A collection of certifications that support my skills in web development, networking, and machine learning.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- CERT 1 -->
+        <div class="project-card">
+
+          <div class="project-image">
+            <img src="assets/Gamelabcert.png" alt="Laravel Certificate">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>MSIB Certificate</h3>
+
+            <p>
+             Industrial internship certification (MSIB) at PT Educa Sisfomedia Indonesia, focusing on full-stack web development training.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Laravel</div>
+              <div class="tag">Frontend</div>
+              <div class="tag">Backend</div>
+              <div class="tag">Web Dev</div>
+            </div>
+
+            <div class="project-actions">              
+             <a href="#" class="project-btn open-cert" data-img="assets/Gamelabcert.png">
+                
+                <!-- ICON EYE -->
+               <svg xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+
+                </svg>
+                View Certificate
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CERT 2 -->
+        <div class="project-card">
+
+          <div class="project-image">
+            <img src="assets/PKL.png" alt="Networking Certificate">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>Industrial Internship Certificate</h3>
+
+            <p>
+             Industrial internship certificate in network setup, hardware maintenance, and IT troubleshooting at PT Dua Kelinci.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Networking</div>
+              <div class="tag">IT Support</div>
+              <div class="tag">Infrastructure</div>
+            </div>
+
+            <div class="project-actions">
+
+             <a href="#" class="project-btn open-cert" data-img="assets/PKL.png">
+
+                <!-- ICON EYE -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                  <circle cx="12" cy="12" r="3"/>
+
+                </svg>
+                View Certificate
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CERT 3 -->
+        <div class="project-card">
+
+          <div class="project-image">
+            <img src="assets/SK.png" alt="AI Certificate">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>SK Organization</h3>
+
+            <p>
+             Official organizational decree (SK) recognizing participation and role in student organization activities and responsibilities.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Leadership</div>
+              <div class="tag">Communication Skills</div>
+              <div class="tag">Problem-Solving</div>
+              <div class="tag">Teamwork</div>
+            </div>
+
+            <div class="project-actions">
+
+            <a href="#" class="project-btn open-cert" data-img="assets/SK.png">
+
+              <svg xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+
+              </svg>
+                View Certificate
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CERT 4 -->
+        <div class="project-card certificate-item hidden-cert">
+
+          <div class="project-image">
+            <img src="assets/bnsp.png" alt="AI Certificate">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>Certificate of Competency in Computer and Network Engineering</h3>
+
+            <p>
+            Professional competency certificate in computer and network engineering covering network installation, routing configuration, and network device management.
+            </p>
+
+            <div class="tags">
+              <div class="tag">MikroTik</div>
+              <div class="tag">Routing</div>
+              <div class="tag">Troubleshooting</div>
+            </div>
+
+            <div class="project-actions">
+
+            <a href="#" class="project-btn open-cert" data-img="assets/bnsp.png">
+
+              <svg xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+
+              </svg>
+                View Certificate
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+          <!-- CERT 5 -->
+          <div class="project-card certificate-item hidden-cert">
+
+          <div class="project-image">
+            <img src="assets/pelatihan.png" alt="AI Certificate">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>Artificial Intelligence Training Certificate</h3>
+
+            <p>
+              Participation certificate for artificial intelligence training focused on digital image object recognition and classification using the YOLO deep learning method.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Python</div>
+              <div class="tag">Computer Vision</div>
+              <div class="tag">Image classification</div>
+              <div class="tag">YOLO</div>
+            </div>
+
+            <div class="project-actions">
+
+            <a href="#" class="project-btn open-cert" data-img="assets/pelatihan.png">
+
+              <svg xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+
+              </svg>
+                View Certificate
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CERT 6 -->
+        <div class="project-card certificate-item hidden-cert">
+
+          <div class="project-image">
+            <img src="assets/kanim.png" alt="AI Certificate">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>Immigration Internship Certificate</h3>
+
+            <p>
+            Internship completion certificate from Kantor Imigrasi Kelas I Non TPI Pati in system management, public service support, and information system administration.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Laravel</div>
+              <div class="tag">Frontend</div>
+              <div class="tag">Backend</div>
+              <div class="tag">Web Dev</div>
+            </div>
+
+            <div class="project-actions">
+
+            <a href="#" class="project-btn open-cert" data-img="assets/kanim.png">
+
+              <svg xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+
+              </svg>
+                View Certificate
+
+              </a>
+
+            </div>
+
+          </div>
+          
+
+        </div>
+        <!-- CERT 6 -->
+        <div class="project-card certificate-item hidden-cert">
+
+          <div class="project-image">
+            <img src="assets/pemateri.png" alt="AI Certificate">
+            <div class="project-overlay"></div>
+          </div>
+
+          <div class="project-content">
+
+            <h3>Speaker Certificate</h3>
+
+            <p>
+            Certificate of appreciation as a speaker for sharing knowledge and insights in technology and organizational development activities, demonstrating public speaking and communication skills.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Public Speaking</div>
+              <div class="tag">Communication</div>
+              <div class="tag">Leadership</div>
+            </div>
+
+            <div class="project-actions">
+
+            <a href="#" class="project-btn open-cert" data-img="assets/pemateri.png">
+
+              <svg xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+
+              </svg>
+                View Certificate
+
+              </a>
+
+            </div>
+
+          </div>
+          
+
+        </div>
+       
+      </div>
+       <!-- BUTTON SHOW MORE -->
+        <div class="show-more-wrapper">
+          <button id="showMoreBtn" class="show-more-btn">
+            
+            <span>View More Certificates</span>
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+              <path d="M6 9l6 6 6-6"/>
+
+            </svg>
+
+          </button>
+        </div>
+
+    </div>
+
+  </section>
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+
+    <div class="container">
+
+      <div class="contact">
+
+        <h2>Open for Work & Collaboration</h2>
+
+        <p>
+          Open for collaboration in the fields of Web Development, Networking, and Machine Learning.
+        </p>
+
+        <div class="contact-links">
+
+         <div class="contact-links">
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anjasrestu301003@gmail.com" class="contact-item">
+              <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z"/>
+            </svg>
+              </span>
+              Email
+            </a>
+
+            <a href="https://wa.link/lur4fr" class="contact-item">
+              <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              </span>
+              WhatsApp
+            </a>
+
+            <a href="https://linkedin.com/in/anjasrestu" target="_blank" class="contact-item">
+              <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              </span>
+              LinkedIn
+            </a>
+            </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Anjas Restu Mulia Adhi — Portfolio
+  </footer>
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+      
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+  <script>
+
+    /* REVEAL ANIMATION */
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    function revealScroll(){
+
+      reveals.forEach((element)=>{
+
+        const windowHeight = window.innerHeight;
+        const revealTop = element.getBoundingClientRect().top;
+
+        if(revealTop < windowHeight - 100){
+          element.classList.add('active');
+        }
+
+      })
+
+    }
+
+    window.addEventListener('scroll', revealScroll);
+    revealScroll();
+
+    /* HAMBURGER */
+
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', ()=>{
+
+      hamburger.classList.toggle('active');
+      menu.classList.toggle('active');
+
+    });
+
+    /* AUTO CLOSE MENU */
+
+    document.querySelectorAll('.menu a').forEach(link => {
+
+      link.addEventListener('click', ()=>{
+
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+
+      });
+
+    });
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+  </script>
+  <!-- CERTIFICATE MODAL -->
+  <div class="cert-modal" id="certModal">
+
+    <div class="cert-content">
+
+      <span class="cert-close" id="certClose">&times;</span>
+
+      <img id="certImage" src="" alt="Certificate">
+
+    </div>
+
+  </div>
+  <script>
+
+  const modal = document.getElementById("certModal");
+  const modalImg = document.getElementById("certImage");
+  const closeBtn = document.getElementById("certClose");
+
+  // OPEN CERTIFICATE
+  document.querySelectorAll(".open-cert").forEach(btn => {
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+      const imgSrc = this.getAttribute("data-img");
+      modalImg.src = imgSrc;
+      modal.classList.add("active");
+    });
+  });
+
+  // CLOSE MODAL
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  // CLOSE WHEN CLICK OUTSIDE IMAGE
+  modal.addEventListener("click", (e) => {
+    if(e.target === modal){
+      modal.classList.remove("active");
+    }
+  });
+
+  </script>
+  <script>
+
+  const showMoreBtn = document.getElementById("showMoreBtn");
+  const hiddenCerts = document.querySelectorAll(".hidden-cert");
+
+  let expanded = false;
+
+  showMoreBtn.addEventListener("click", () => {
+
+    expanded = !expanded;
+
+    hiddenCerts.forEach((card, index) => {
+
+      if(expanded){
+
+        card.style.display = "block";
+
+        setTimeout(() => {
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+        }, index * 120);
+
+      } else {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+
+        setTimeout(() => {
+          card.style.display = "none";
+        }, 300);
+
+      }
+
+    });
+
+    showMoreBtn.classList.toggle("active");
+
+    showMoreBtn.querySelector("span").textContent =
+      expanded ? "Show Less" : "View More Certificates";
+
+  });
+
+  </script>
+</body>
+</html>
